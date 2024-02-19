@@ -1,15 +1,15 @@
 [Run]
 name = "MISMIPplus_5km_laddie"   # Run name
-days = 20        # [days] run duration
+days = 4        # [days] run duration
 
 [Time]
 dt = 96        # [s] timestep
-restday = 20    # [days] interval to save restartfile
-saveday = 20    # [days] interval to save model output
+restday = 4    # [days] interval to save restartfile
+saveday = 2    # [days] interval to save model output
 diagday = 0.1   # [days] interval to spit out diagnostics
 
 [Geometry]
-filename = "./output/MISridge_1km_spinup/main_output_ANT_grid.nc"  # File containing geometry input
+filename = "./output/MISridge_1km_runtime/main_output_ANT_grid.nc"  # File containing geometry input
 maskoption = "UFEMISM"                # Choice for mask definition, choose from 'BM', 'UFEMISM', and 'ISOMIP'
 
 geomyear = -1      			# Time index of geometry input
@@ -18,7 +18,7 @@ geomyear = -1      			# Time index of geometry input
 #coarsen = 1                # Factor to coarsen geometry. 1 uses clean input (no effect)
 calvthresh = 0              # [m] Thickness threshold for calving. 0 uses clean input (no effect)
 removebergs = false         # Remove icebergs
-correctisf = true          # Remove ice shelf grids sticking out
+correctisf = false          # Remove ice shelf grids sticking out
 fillisolated = false        # Fill isolated ice shelf points, change to grounded
 
 cutdomain = true            # Cut out minimal domain around ice shelf for computation
@@ -35,7 +35,7 @@ option = "tanh" # Available options: 'file', 'tanh', 'linear', 'linear2', 'isomi
 z0    = -450    # [m] Reference depth used in 'tanh' and 'linear', 'isomip', and 'linear2'
 S0    = 34.0    # [psu] Surface salinity used in 'tanh'
 S1    = 35.0    # [psu] Salinity at depth z0 used in 'linear', 'linear2'
-T1    = 1.5     # [degC] Temperature at depth used in 'tanh'
+T1    = 0.5 # 1.5     # [degC] Temperature at depth used in 'tanh'
 z1    = 250     # [m] Depth scale used in 'tanh'
 drho0 = 0.01    # [kg/m3 /m2] Scaling factor for quadratic density profile 
 isomipcond = "warm" # ISOMIP condition, either 'warm' or 'cold'
@@ -52,9 +52,10 @@ forcenewdir = false     # Make sure output is written to a non-existing output d
 
 [Filenames]
 logfile = "log.txt" # Log file
+restartfile = "output/MISMIPplus_5km_laddie/restart_latest.nc"
 
 [Initialisation]
-fromrestart = false    # Try starting from an existing restart file
+fromrestart = true    # Try starting from an existing restart file
 restartfile = ""       #"./results/restart/CrossDots_0.5_tanh_Tdeep0.4_ztcl-500_001.nc"  # Restartfile
 Dinit = 10.0           # [m]         Initial uniform thickness D if not from restart
 dTinit = 0.0          # [degC] Initial uniform difference from Ta
