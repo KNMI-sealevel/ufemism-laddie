@@ -1,15 +1,15 @@
 [Run]
-name = "MISMIPplus_5km_laddie"   # Run name
-days = 20        # [days] run duration
+name = "MISplus_1km_laddie"   # Run name
+days = 2 #20        # [days] run duration
 
 [Time]
 dt = 96        # [s] timestep
-restday = 20    # [days] interval to save restartfile
-saveday = 20    # [days] interval to save model output
+restday = 2 #20    # [days] interval to save restartfile
+saveday = 2 #20    # [days] interval to save model output
 diagday = 0.1   # [days] interval to spit out diagnostics
 
 [Geometry]
-filename = "./output/MISridge_1km_spinup/main_output_ANT_grid.nc"  # File containing geometry input
+filename = "./output/MISplus_1km_spinup/main_output_ANT_grid.nc"  # File containing geometry input
 maskoption = "UFEMISM"                # Choice for mask definition, choose from 'BM', 'UFEMISM', and 'ISOMIP'
 
 geomyear = -1      			# Time index of geometry input

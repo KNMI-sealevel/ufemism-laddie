@@ -163,3 +163,7 @@ input/
 output/
 video/
 .DS_Store
+ufespin*
+ufelad*
+ladspin*
+data
